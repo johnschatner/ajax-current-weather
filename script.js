@@ -7,9 +7,10 @@ let requestWeather = new XMLHttpRequest(); // AJAX request
 let coords = [59.3293, 18.0686]; // Coordinates for Stockholm, Sweden
 getWeather(coords);
 
+// // RUNS ONCE
 // Get current weather data for the coords[]
-function getWeather(coords) {
-  let weatherApiCall = `https://api.openweathermap.org/data/2.5/weather?lat=${coords[0]}&lon=${coords[1]}&appid=${apiKey}`; // variable holding API call url
+function getWeather(coords, lang = "sv") {
+  let weatherApiCall = `https://api.openweathermap.org/data/2.5/weather?lat=${coords[0]}&lon=${coords[1]}&appid=${apiKey}&lang=${lang}`; // variable holding API call url
   requestWeather.open("GET", weatherApiCall); // Open AJAX request for the weatherApiCAll variable
   requestWeather.send(); // Send AJAX request
   requestWeather.onload = () => {
@@ -17,9 +18,11 @@ function getWeather(coords) {
       // The current weather in location
       let weatherResponse = JSON.parse(requestWeather.response);
       console.log(weatherResponse);
-      // Print the values
+      // // Print the values
+      // Prints the location
       let resultDiv = document.getElementById("result");
       resultDiv.innerHTML = `<span class="city-header">${weatherResponse.name}</span`;
+      // Prints the temperature in celsius
       let temps = document.getElementById("temps");
       temps.innerHTML = `
         <span class="bold">${(weatherResponse.main.temp - 273.15).toFixed(
@@ -29,6 +32,41 @@ function getWeather(coords) {
           0
         )}°</span>
         `;
+      // Prints the weather icon
+      let weatherIcon = document.getElementById("weatherIcon");
+      weatherIcon.src = `https://openweathermap.org/img/wn/${weatherResponse.weather[0].icon}@2x.png`;
+      // Prints the weather description in chosen language (lang)
+      let weatherDesc = document.getElementById("weatherDesc");
+      weatherDesc.innerHTML = weatherResponse.weather[0].description;
+      // Prints the weather rain in mm
+      let weatherRain = document.getElementById("weatherRain");
+      if (weatherResponse.rain !== undefined) {
+        let rain = Object.values(weatherResponse.rain);
+        weatherRain.innerHTML = rain[0] + " mm";
+      } else {
+        weatherRain.innerHTML = "0 mm";
+      }
+      // Prints the weather wind in m/s
+      let weatherWind = document.getElementById("weatherWind");
+      weatherWind.innerHTML = `${weatherResponse.wind.speed} m/s`;
+
+      // Prints the sunrise/sunset in local time
+      let sunriseSpan = document.getElementById("sysSunrise");
+      let sunsetSpan = document.getElementById("sysSunset");
+      // Convert unix, UTC to local time
+      let secSunrise = weatherResponse.sys.sunrise;
+      let secSunset = weatherResponse.sys.sunset;
+      let sunriseDate = new Date(secSunrise * 1000);
+      let sunsetDate = new Date(secSunset * 1000);
+      let sunriseHours = sunriseDate.getHours();
+      let sunsetHours = sunsetDate.getHours();
+      let sunriseMinutes = sunsetDate.getMinutes();
+      let sunsetMinutes = sunsetDate.getMinutes();
+      let formattedSunrise = sunriseHours + ":" + sunriseMinutes;
+      let formattedSunset = sunsetHours + ":" + sunsetMinutes;
+      // InnerHTML the values
+      sunriseSpan.innerHTML = formattedSunrise;
+      sunsetSpan.innerHTML = formattedSunset;
     } else {
       console.log(
         `error ${requestWeather.status} ${requestWeather.statusText} C`
@@ -36,66 +74,8 @@ function getWeather(coords) {
     }
   };
 }
-// // Backup works with 2 variables (lat, lon)
-// function getWeather(lat, lon) {
-//   let weatherApiCall = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-//   requestWeather.open("GET", weatherApiCall);
-//   requestWeather.send();
-//   requestWeather.onload = () => {
-//     if (requestWeather.status === 200) {
-//       // The current weather in location
-//       let weatherResponse = JSON.parse(requestWeather.response);
-//       console.log(weatherResponse);
-//       // Print the values
-//       let resultDiv = document.getElementById("result");
-//       resultDiv.innerHTML = `<span class="city-header">${weatherResponse.name}</span`;
-//       let temps = document.getElementById("temps");
-//       temps.innerHTML = `
-//       <span class="bold">${(weatherResponse.main.temp - 273.15).toFixed(
-//         0
-//       )}°</span>
-//       <span class="">${(weatherResponse.main.temp_min - 273.15).toFixed(
-//         0
-//       )}°</span>
-//       `;
-//     } else {
-//       console.log(
-//         `error ${requestWeather.status} ${requestWeather.statusText} C`
-//       );
-//     }
-//   };
-// }
 
-// NOT WORKING /////////////////////////////////////////////////////////////////
-//Create GeoCoding function
-function getCoords(cityName, limit = 1) {
-  let stateCode; // (only for the US)
-  let countryCode; // ISO 3166 country codes.
-  let geocodingApiCall = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=${limit}&appid=${apiKey}`;
-
-  // GeoCoding API Call
-  requestLocation.open("GET", geocodingApiCall);
-  requestLocation.send();
-  requestLocation.onload = () => {
-    if (requestLocation.status === 200) {
-      let geoCoding = JSON.parse(requestLocation.response)[0];
-
-      // Weather API Call
-      let location = [];
-      location.push(geoCoding.lat);
-      location.push(geoCoding.lon);
-
-      console.log(location);
-    } else {
-      console.log(
-        `error ${requestLocation.status} ${requestLocation.statusText}`
-      );
-    }
-  };
-}
-getCoords("Helsingborg");
-// NOT WORKING //////////////////////////////////////////////////////////////////
-
+// // RUNS WHENEVER BTN CLICK
 // Get weather data when button click from <input> value
 let searchBtn = document.getElementById("searchBtn");
 searchBtn.addEventListener("click", (e) => {
@@ -113,9 +93,6 @@ searchBtn.addEventListener("click", (e) => {
       // Run following if API call is successful
       let geoCoding = JSON.parse(requestLocation.response)[0];
       console.log(geoCoding);
-      console.log(
-        `The current latitude is ${geoCoding.lat} and longitude ${geoCoding.lon} in ${geoCoding.country}`
-      );
 
       // Weather API Call
       let coords = []; // Create empty array
@@ -133,37 +110,3 @@ searchBtn.addEventListener("click", (e) => {
     }
   };
 });
-// Backup works with 2 variables (lat, lon)
-// // Get weather updates
-// let searchBtn = document.getElementById("searchBtn");
-// searchBtn.addEventListener("click", (e) => {
-//   let cityName = document.getElementById("userInputLocation").value; // ex: Helsingborg, London
-//   let stateCode; // (only for the US)
-//   let countryCode; // ISO 3166 country codes.
-//   let limit = 1; // Number of the locations in the API response (up to 5 results can be returned in the API response)
-//   let geocodingApiCall = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=${limit}&appid=${apiKey}`;
-
-//   // GeoCoding API Call
-//   requestLocation.open("GET", geocodingApiCall);
-//   requestLocation.send();
-//   requestLocation.onload = () => {
-//     if (requestLocation.status === 200) {
-//       let geoCoding = JSON.parse(requestLocation.response)[0];
-//       console.log(geoCoding);
-//       console.log(
-//         `The current latitude is ${geoCoding.lat} and longitude ${geoCoding.lon} in ${geoCoding.country}`
-//       );
-
-//       // Weather API Call
-//       let lat = geoCoding.lat;
-//       let lon = geoCoding.lon;
-//       let weatherApiCall = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-
-//       getWeather(lat, lon);
-//     } else {
-//       console.log(
-//         `error ${requestLocation.status} ${requestLocation.statusText}`
-//       );
-//     }
-//   };
-// });

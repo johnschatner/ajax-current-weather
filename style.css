@@ -1,17 +1,25 @@
 :root {
   --color-bg: #f5f6f7;
   --color-white: #fff;
-  --color-grey: rgb(143, 143, 143);
+  --color-grey: rgb(220, 220, 220);
 }
 
 /* ======
    HEADER
    ====== */
+header {
+  background-color: #12212b;
+  display: flex;
+  justify-content: center;
+}
 .header-wrapper {
-  background-color: white;
+  max-width: 100rem;
+  color: white;
   padding: 30px;
   font-size: 1.4rem;
-  margin-bottom: 1rem;
+}
+.logo {
+  max-width: 240px;
 }
 
 /* ======
@@ -20,12 +28,15 @@
 body {
   background-color: var(--color-bg);
 }
+body > * {
+  margin-bottom: 2rem;
+}
 form {
   margin-bottom: 2.4rem;
 }
 .container {
   border-radius: 4px;
-  padding: 30px 16px;
+  padding: 30px 22px;
   background-color: var(--color-white);
 }
 .weather-header {
@@ -78,43 +89,46 @@ form {
    ====== */
 .FlexContainerLabels {
   display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  flex-direction: row;
 }
-.FlexContainerLabels div {
-  flex: 1;
-  width: 100px;
-  margin-bottom: 1rem;
-}
-.FlexContainerLabels div:first-child {
+.FlexContainerLabels > div {
+  display: flex;
+  justify-content: center;
   flex: 2;
+  width: 100px;
+  margin-bottom: 1.5rem;
 }
+.FlexContainerLabels > div:first-child {
+  flex: 3;
+}
+.flexcontainer-label {
+  max-width: 70px;
+  font-size: 0.875rem;
+}
+
 .FlexContainer {
   display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  flex-direction: row;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.FlexContainer div {
-  flex: 1;
+.FlexContainer > div {
+  flex: 2;
+  padding: 12px;
   display: flex;
-  flex-wrap: wrap;
   border-top: 1px solid var(--color-grey);
   border-bottom: 1px solid var(--color-grey);
-  min-height: 70px;
+  max-height: 74px;
+  justify-content: center;
 }
-.FlexContainer div:first-child {
+.FlexContainer > div:first-child {
+  padding: 6px;
   border-top-left-radius: 2px;
   border-bottom-left-radius: 2px;
   border-left: 1px solid var(--color-grey);
-  flex: 2;
+  flex: 3;
 }
-.FlexContainer div:nth-child(2) {
+.FlexContainer > div:nth-child(2) {
   border-left: 1px solid var(--color-grey);
 }
-.FlexContainer div:last-child {
+.FlexContainer > div:last-child {
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
   border-right: 1px solid var(--color-grey);
@@ -127,13 +141,39 @@ form {
 .temps {
   border: none !important;
 }
-.tempIcon {
-  flex-direction: column;
-  justify-content: center;
-  align-content: center;
-}
 .temps {
+  margin-left: 10px;
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+}
+
+/*
+  Weather info
+    * Icon
+    * Day
+    * Date
+*/
+.weather-icon {
+  max-width: 82px;
+  object-fit: cover;
+}
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 10px;
+}
+.weather-day {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+.weather-desc::first-letter {
+  text-transform: uppercase;
+}
+.weather-rain {
+  margin-left: 10px;
+}
+.weather-wind {
+  margin-left: 10px;
 }

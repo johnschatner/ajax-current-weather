@@ -27,7 +27,15 @@
   <body>
     <header>
       <div class="header-wrapper">
-        <nav>GasCloud Nordic</nav>
+        <nav>
+          <a href="index.html">
+            <img
+              src="img/gascloud-nordic-high-resolution-logo-white-on-transparent-background.png"
+              alt="GasCloud Nordic"
+              class="logo"
+            />
+          </a>
+        </nav>
       </div>
     </header>
     <div class="container">
@@ -61,14 +69,27 @@
       </form>
       <section class="FlexContainerLabels">
         <div></div>
-        <div>Temperatur max / min</div>
-        <div>Nederbörd per dygn</div>
-        <div>Vind / byvind</div>
-        <div>Soltider upp / ner</div>
-        <div>Prognosens säkerhet</div>
+        <div><span class="flexcontainer-label">Temperatur max / min</span></div>
+        <div>
+          <span class="flexcontainer-label">Nederbörd 1h</span>
+        </div>
+        <div><span class="flexcontainer-label">Vind</span></div>
+        <div><span class="flexcontainer-label">Soltider upp / ner</span></div>
+        <div><span class="flexcontainer-label">Prognosens säkerhet</span></div>
       </section>
       <section class="FlexContainer">
-        <div></div>
+        <div id="weather">
+          <img
+            class="weather-icon"
+            id="weatherIcon"
+            src=""
+            alt="Weather Icon"
+          />
+          <div class="weather-info">
+            <span class="weather-day">Idag</span>
+            <span id="weatherDesc" class="weather-desc"></span>
+          </div>
+        </div>
         <div id="tempValue">
           <div class="tempIcon">
             <svg
@@ -90,9 +111,57 @@
           </div>
           <div id="temps" class="temps"></div>
         </div>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            class="auIcon auIcon24"
+            focusable="false"
+          >
+            <path
+              d="M15 19a2 2 0 01-2-2v-3.75a4.5 4.5 0 012.33 1.41 4.39 4.39 0 013.32-1.53 4.45 4.45 0 012.34.68 9 9 0 00-8-8.75V3H11v2.06a9 9 0 00-8 8.75 4.45 4.45 0 012.34-.68 4.39 4.39 0 013.32 1.53A4.5 4.5 0 0111 13.25V17a4 4 0 008 0h-2a2 2 0 01-2 2zM12 7.35c.86 0 1.95 1.59 2.55 4.32a6.29 6.29 0 00-5.1 0C10.06 9 11.15 7.35 12 7.35zm6.37 3.79a5.88 5.88 0 00-1.81.36 13.24 13.24 0 00-1.25-3.64 7.05 7.05 0 013.06 3.28zM8.69 7.86a13.45 13.45 0 00-1.26 3.64 5.82 5.82 0 00-1.8-.36 7.1 7.1 0 013.06-3.28z"
+            ></path>
+          </svg>
+          <span id="weatherRain" class="weather-rain bold"></span>
+        </div>
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            class="auIcon auIcon24"
+            focusable="false"
+          >
+            <path
+              d="M19 19a3 3 0 01-2.6-1.5l1.73-1A1 1 0 1019 15H2v-2h17a3 3 0 010 6z"
+            ></path>
+            <path
+              d="M5 17h7.56v2H5zM15 11H5V9h10a1 1 0 10-.87-1.5l-1.73-1A3 3 0 1115 11z"
+            ></path>
+          </svg>
+          <span id="weatherWind" class="weather-wind bold"></span>
+        </div>
+        <div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            width="24"
+            height="24"
+            class="auIcon auIcon24"
+            focusable="false"
+          >
+            <path
+              d="M16.9 17a5.47 5.47 0 00.1-1 5 5 0 00-10 0 5.47 5.47 0 00.1 1H2v2h20v-2zm-2.08 0H9.18a3 3 0 115.64 0zM11 5h2v4h-2zM15.53 10.044l2.829-2.828 1.414 1.414-2.828 2.828zM4.216 8.634L5.63 7.22l2.829 2.828-1.414 1.415z"
+            ></path>
+          </svg>
+          <div class="temps">
+            <span id="sysSunrise" class="sys-sunrise bold">12:00</span>
+            <span id="sysSunset" class="sys-sunset">13:30</span>
+          </div>
+        </div>
         <div></div>
       </section>
     </div>

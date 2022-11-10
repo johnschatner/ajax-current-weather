@@ -96,7 +96,7 @@ searchBtn.addEventListener("click", (e) => {
   let stateCode; // (only for the US)
   let countryCode; // ISO 3166 country codes.
   let limit = 1; // Number of the locations in the API response (up to 5 results can be returned in the API response)
-  let geocodingApiCall = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=${limit}&appid=${apiKey}`;
+  let geocodingApiCall = `https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=${limit}&appid=${apiKey}`;
 
   // GeoCoding API Call
   requestLocation.open("GET", geocodingApiCall);

@@ -41,7 +41,7 @@
     <a href="https://github.com/johnschatner/ajax-current-weather"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/johnschatner/ajax-current-weather">View Demo</a>
+    <a href="https://ajax-current-weather.netlify.app">View Demo</a>
     ·
     <a href="https://github.com/johnschatner/ajax-current-weather/issues">Report Bug</a>
     ·

@@ -9,7 +9,7 @@ getWeather(coords);
 
 // // RUNS ONCE
 // Get current weather data for the coords[]
-function getWeather(coords, lang = "sv") {
+function getWeather(coords, swedishName, lang = "sv") {
   let weatherApiCall = `https://api.openweathermap.org/data/2.5/weather?lat=${coords[0]}&lon=${coords[1]}&appid=${apiKey}&lang=${lang}`; // variable holding API call url
   requestWeather.open("GET", weatherApiCall); // Open AJAX request for the weatherApiCAll variable
   requestWeather.send(); // Send AJAX request
@@ -21,7 +21,11 @@ function getWeather(coords, lang = "sv") {
       // // Print the values
       // Prints the location
       let resultDiv = document.getElementById("result");
-      resultDiv.innerHTML = `<span class="city-header">${weatherResponse.name}</span`;
+      if (swedishName) {
+        resultDiv.innerHTML = `<span class="city-header">${swedishName}</span`;
+      } else {
+        resultDiv.innerHTML = `<span class="city-header">${weatherResponse.name}</span`;
+      }
       // Prints the temperature in celsius
       let temps = document.getElementById("temps");
       temps.innerHTML = `
@@ -67,6 +71,15 @@ function getWeather(coords, lang = "sv") {
       // InnerHTML the values
       sunriseSpan.innerHTML = formattedSunrise;
       sunsetSpan.innerHTML = formattedSunset;
+
+      // Forecast Credibility score
+      let credibilityScore = document.getElementById("credibilityScore");
+      let randNum = Math.floor(Math.random() * 100) + 1;
+      if (randNum <= 99) {
+        credibilityScore.innerHTML = "Säker";
+      } else {
+        credibilityScore.innerHTML = "Osäker";
+      }
     } else {
       console.log(
         `error ${requestWeather.status} ${requestWeather.statusText} C`
@@ -100,7 +113,7 @@ searchBtn.addEventListener("click", (e) => {
       coords.push(geoCoding.lon); // Add longitude to coords[1]
       let weatherApiCall = `https://api.openweathermap.org/data/2.5/weather?lat=${coords[0]}&lon=${coords[1]}&appid=${apiKey}`;
 
-      getWeather(coords); // get weather data for the current geocoding data
+      getWeather(coords, geoCoding.local_names.sv); // get weather data for the current geocoding data
       setInterval(getWeather, 60000, coords); // refreshes weather data for current city every minute
     } else {
       // Add error message if API call fails

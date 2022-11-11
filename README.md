@@ -29,8 +29,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/johnschatner/ajax-current-weather">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://www.flaticon.com/free-icons/rain">
+    <img src="img/cloudy.png" alt="Logo" width="80" height="80">
   </a>
 
 <h3 align="center">AJAX Current Weather</h3>
@@ -38,10 +38,9 @@
   <p align="center">
     AJAX Current Weather fetches the current weather data for any given location. If no user input, location defaults to Stockholm, Sweden.
     <br />
-    <a href="https://github.com/johnschatner/ajax-current-weather"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/johnschatner/ajax-current-weather">View Demo</a>
+    <a href="https://ajax-current-weather.netlify.app/">View Demo</a>
     ·
     <a href="https://github.com/johnschatner/ajax-current-weather/issues">Report Bug</a>
     ·
@@ -79,56 +78,28 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![img/ajaxcurrentweather.png](img/ajaxcurrentweather.png)](https://github.com/johnschatner/ajax-current-weather)
 
-Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `johnschatner`, `ajax-current-weather`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `AJAX Current Weather`, `AJAX Current Weather fetches the current weather data for any given location. If no user input, location defaults to Stockholm, Sweden.`
+This project is a graded school examination to evaluate the alumnis competency in HTML, CSS and JS. The focus was specifically on JavaScript and API:s along with the XMLHttpRequest class. We were tasked with creating a static web page that would fetch the current weather for a hardcoded location.
+
+1. Fetch and store the latitude and longitude coordinates for a given location using the OpenWeather GeoCoding API.
+2. Fetch the temperature and weather description data for the given coordinates using OpenWeathe's Current weather data API.
+
+I felt the urge to go a step further and expanded the app by
+
+- User input for any location
+- Modern UI
+- Dynamic weather icon
+- Min/max temperatures for the day
+- Rainfall for past hour in mm
+- Wind speed in m/s
+- Sunrise/sunset times
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### Built With
 
-- [![Next][next.js]][next-url]
-- [![React][react.js]][react-url]
-- [![Vue][vue.js]][vue-url]
-- [![Angular][angular.io]][angular-url]
-- [![Svelte][svelte.dev]][svelte-url]
-- [![Laravel][laravel.com]][laravel-url]
-- [![Bootstrap][bootstrap.com]][bootstrap-url]
-- [![JQuery][jquery.com]][jquery-url]
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- GETTING STARTED -->
-
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
-### Installation
-
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
-   ```sh
-   git clone https://github.com/johnschatner/ajax-current-weather.git
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = "ENTER YOUR API";
-   ```
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png" width="48px">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -139,19 +110,6 @@ This is an example of how to list things you need to use the software and how to
 Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ROADMAP -->
-
-## Roadmap
-
-- [ ] Feature 1
-- [ ] Feature 2
-- [ ] Feature 3
-  - [ ] Nested Feature
-
-See the [open issues](https://github.com/johnschatner/ajax-current-weather/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -177,26 +135,6 @@ Don't forget to give the project a star! Thanks again!
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTACT -->
-
-## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
-
-Project Link: [https://github.com/johnschatner/ajax-current-weather](https://github.com/johnschatner/ajax-current-weather)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- ACKNOWLEDGMENTS -->
-
-## Acknowledgments
-
-- []()
-- []()
-- []()
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

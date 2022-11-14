@@ -55,6 +55,7 @@ form {
   background: transparent;
   font-size: 1.15rem;
   padding: 14px 26px;
+  height: 100%;
 }
 .search-wrapper input:hover {
   background-color: aliceblue;
@@ -184,4 +185,36 @@ form {
   height: fit-content;
   border: 1px solid gray;
   border-radius: 99px;
+}
+
+/* ======
+   MOBILE
+   ====== */
+@media (max-width: 800px) {
+  .search-wrapper * {
+    max-width: 160px;
+  }
+  .city-header {
+    font-size: 1.75rem;
+  }
+  .weather-icon {
+    max-width: 40px;
+  }
+  .weather-day,
+  .search-wrapper input {
+    font-size: 1rem;
+  }
+  .FlexContainer * {
+    font-size: 0.8rem;
+  }
+  .flexcontainer-label {
+    font-size: 0.7rem;
+  }
+  .FlexContainer svg {
+    width: 18px;
+    height: 18px;
+  }
+  .FlexContainer {
+    overflow-x: scroll;
+  }
 }

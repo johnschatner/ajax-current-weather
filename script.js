@@ -66,8 +66,26 @@ function getWeather(coords, swedishName, lang = "sv") {
       let sunsetHours = sunsetDate.getHours();
       let sunriseMinutes = sunsetDate.getMinutes();
       let sunsetMinutes = sunsetDate.getMinutes();
+
+      // dateFormatter function a bug where sometimes the date could be printed as
+      // 6:3 instead of 6:30. The function checks if the minutes is a single digit
+      // add a "0"
+      function dateFormatter() {
+        function isDoubleDigit(num) {
+          return num > 9 && num < 100;
+        }
+        if (!isDoubleDigit(sunriseMinutes)) {
+          sunriseMinutes += "0";
+        }
+        if (!isDoubleDigit(sunsetMinutes)) {
+          sunsetMinutes += "0";
+        }
+      }
+      dateFormatter();
+
       let formattedSunrise = sunriseHours + ":" + sunriseMinutes;
       let formattedSunset = sunsetHours + ":" + sunsetMinutes;
+
       // InnerHTML the values
       sunriseSpan.innerHTML = formattedSunrise;
       sunsetSpan.innerHTML = formattedSunset;
@@ -92,6 +110,8 @@ function getWeather(coords, swedishName, lang = "sv") {
 // Get weather data when button click from <input> value
 let searchBtn = document.getElementById("searchBtn");
 searchBtn.addEventListener("click", (e) => {
+  e.preventDefault(); // prevents form submission & page reload
+
   let cityName = document.getElementById("userInputLocation").value; // ex: Helsingborg, London
   let stateCode; // (only for the US)
   let countryCode; // ISO 3166 country codes.

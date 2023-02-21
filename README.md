@@ -40,8 +40,8 @@
     <br />
     <br />
     <br />
-    <a href="https://ajax-current-weather.netlify.app/">View Demo</a>
-    ·
+    <!-- <a href="https://ajax-current-weather.netlify.app/">View Demo</a>
+    · -->
     <a href="https://github.com/johnschatner/ajax-current-weather/issues">Report Bug</a>
     ·
     <a href="https://github.com/johnschatner/ajax-current-weather/issues">Request Feature</a>
@@ -103,13 +103,45 @@ I felt the urge to go a step further and expanded the app by
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Getting Started
+
+<a target="_blank" href="https://johns-react-digital-clock.netlify.app/"><strong>View Demo »</strong></a>
+
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+
+This project uses npm, please install the latest version:
+
+- npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/johnschatner/react-digital-clock.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Start a local development server
+   ```sh
+   npm run dev
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- USAGE EXAMPLES -->
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Get weather updates for your city so long as you provide the relevant api key from <a href="https://www.openweathermap.org">OpenWeatherMap</a>.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+<!-- _For more examples, please refer to the [Documentation](https://example.com)_ -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

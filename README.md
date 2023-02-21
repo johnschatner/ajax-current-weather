@@ -117,9 +117,9 @@ To get a local copy up and running follow these simple steps.
    ```js
    const apiKey = yourKey;
    ```
-3. Start a local development server
+3. Live Server Extension available in Visual Studio Code
    ```sh
-   npm run dev
+   Start live server
    ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

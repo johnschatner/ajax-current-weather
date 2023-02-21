@@ -1,9 +1,5 @@
-import config from "./config.js";
-
 // Global variables
-console.log(config);
-
-let apiKey = config; // OpenWeather API key
+const apiKey = "f5880d530c725df7497057aab9437145"; // OpenWeather API key
 let requestLocation = new XMLHttpRequest(); // AJAX request
 let requestWeather = new XMLHttpRequest(); // AJAX request
 

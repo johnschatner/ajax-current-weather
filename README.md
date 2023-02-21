@@ -107,24 +107,15 @@ I felt the urge to go a step further and expanded the app by
 
 To get a local copy up and running follow these simple steps.
 
-### Prerequisites
-
-This project uses npm, please install the latest version:
-
-- npm
-  ```sh
-  npm install npm@latest -g
-  ```
-
 ### Installation
 
 1. Clone the repo
    ```sh
    git clone https://github.com/johnschatner/react-digital-clock.git
    ```
-2. Install NPM packages
-   ```sh
-   npm install
+2. Add API key (replace config with your <a href="https://home.openweathermap.org/api_keys">key</a>)
+   ```js
+   const apiKey = `yourKey`;
    ```
 3. Start a local development server
    ```sh

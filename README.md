@@ -105,8 +105,6 @@ I felt the urge to go a step further and expanded the app by
 
 ## Getting Started
 
-<a target="_blank" href="https://johns-react-digital-clock.netlify.app/"><strong>View Demo »</strong></a>
-
 To get a local copy up and running follow these simple steps.
 
 ### Prerequisites

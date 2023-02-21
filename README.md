@@ -113,9 +113,9 @@ To get a local copy up and running follow these simple steps.
    ```sh
    git clone https://github.com/johnschatner/react-digital-clock.git
    ```
-2. Add API key (replace config with your <a href="https://home.openweathermap.org/api_keys">key</a>)
+2. Add API key inside `script.js` (replace config with your <a href="https://home.openweathermap.org/api_keys">key</a>)
    ```js
-   const apiKey = `yourKey`;
+   const apiKey = yourKey;
    ```
 3. Start a local development server
    ```sh
